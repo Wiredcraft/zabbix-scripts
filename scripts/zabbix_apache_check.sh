@@ -52,7 +52,7 @@ fi
 # Extract data from apache stats
 #
 case $ZBX_REQ_DATA in
-  version)                  /usr/sbin/httpd -v | awk -F / '{print $2}' | head -1;;
+  version)                  apachectl -v | awk -F / '{print $2}' | head -1;;
   total_kbytes)             echo "$APACHE_STATS" | grep 'Total kBytes' | awk -F':' '{print $2}';;
   total_accesses)           echo "$APACHE_STATS" | grep 'Total Accesses' | awk -F':' '{print $2}';;
   scoreboard_waiting)       echo "$TMPSCOREBOARD" | grep -o . | grep -c "\_";;
