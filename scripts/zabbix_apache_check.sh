@@ -20,6 +20,7 @@ ZBX_REQ_DATA_URL="$2"
 # Apache defaults
 APACHE_STATS_DEFAULT_URL="http://localhost:80/server-status?auto"
 WGET_BIN="/usr/bin/wget"
+APACHECTL_BIN="/usr/sbin/apachectl"
 
 # Include config replacing the defaults.
 source ../config/zabbix_apache_conf.sh
@@ -55,7 +56,7 @@ fi
 # Extract data from apache stats
 #
 case $ZBX_REQ_DATA in
-  version)                  apachectl -v | awk -F / '{print $2}' | head -1;;
+  version)                  $APACHECTL_BIN -v | awk -F / '{print $2}' | head -1;;
   total_kbytes)             echo "$APACHE_STATS" | grep 'Total kBytes' | awk -F':' '{print $2}';;
   total_accesses)           echo "$APACHE_STATS" | grep 'Total Accesses' | awk -F':' '{print $2}';;
   scoreboard_waiting)       echo "$TMPSCOREBOARD" | grep -o . | grep -c "\_";;
