@@ -24,8 +24,8 @@ WGET_BIN="/usr/bin/wget"
 APACHECTL_BIN="/usr/sbin/apachectl"
 
 # Include config replacing the defaults.
-if [ -f "../config/apache_check.conf" ]; then
-    source ../config/apache_check.conf
+if [ -f "../conf/apache_check.conf" ]; then
+    source ../conf/apache_check.conf
 fi
 
 #
