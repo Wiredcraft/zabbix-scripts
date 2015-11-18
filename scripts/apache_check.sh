@@ -11,6 +11,7 @@
 ##################################
 # ChangeLog:
 #  20100922	VV	initial creation
+#  20151118 Song add the load of the config
 ##################################
 
 # Zabbix requested parameter
@@ -23,7 +24,9 @@ WGET_BIN="/usr/bin/wget"
 APACHECTL_BIN="/usr/sbin/apachectl"
 
 # Include config replacing the defaults.
-source ../config/zabbix_apache_conf.sh
+if [ -f "../config/apache_check.conf" ]; then
+    source ../config/apache_check.conf
+fi
 
 #
 # Error handling:
