@@ -21,6 +21,9 @@ ZBX_REQ_DATA_URL="$2"
 APACHE_STATS_DEFAULT_URL="http://localhost:80/server-status?auto"
 WGET_BIN="/usr/bin/wget"
 
+# Include config replacing the defaults.
+source ../config/zabbix_apache_conf.sh
+
 #
 # Error handling:
 #  - need to be displayable in Zabbix (avoid NOT_SUPPORTED)
